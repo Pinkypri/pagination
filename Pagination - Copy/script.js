@@ -16,7 +16,7 @@ fetch(url).then((res) => {
 
   function pagedata(stval, endval, arrval) {
     let resu = [];
-    //console.log(resu);
+   
     for (var i = stval; i < arrval.length - endval; i++) {
 
       resu.push(tabledata[i]);
@@ -43,7 +43,7 @@ fetch(url).then((res) => {
   maindiv.appendChild(tableContainer);
 
   function mainhtml(page, i) {
-   
+
 
     tableContainer.innerHTML = " ";
 
@@ -89,9 +89,9 @@ fetch(url).then((res) => {
       const td2 = createDomElement("tr");
       th6.append(td2);
       td2.innerHTML = item.email;
-      
+
     })
-   
+
   }
 
 
@@ -102,16 +102,23 @@ fetch(url).then((res) => {
   maindiv.append(paginationdiv);
   const newdiv = createDomElement("div", "pagination_section");
   maindiv.append(newdiv);
-  const anchor = createDomElement("a", "", "a-item0");
-  
+  const anchor = createDomElement("button", "prev", "a-item0");
+
   anchor.innerHTML = ">> previous";
   anchor.setAttribute("href", "#");
   anchor.setAttribute("value", "0");
 
   anchor.addEventListener('click', function () {
- if (anchor1.className === "active") {
+
+    if (anchor0.className === "active") {
       mainhtml(page1, 1);
-      //anchor0.setAttribute("class", "active");
+      anchor0.setAttribute('class', "a-item")
+
+
+    }
+    else if (anchor1.className === "active") {
+      mainhtml(page1, 1);
+      anchor0.setAttribute("class", "active");
       anchor1.setAttribute("class", "a-item");
 
 
@@ -162,117 +169,104 @@ fetch(url).then((res) => {
     else if (anchor9.className === "active") {
       mainhtml(page10, 10);
       anchor9.setAttribute("class", "active");
-     
-    }
-   else{
-     mainhtml(page1);
-   }
+      
 
+    }
+    else {
+      mainhtml(page1);
+
+    }
+    
   })
 
   const anchor0 = createDomElement("a", "a-item", "a-item1");
   anchor0.innerHTML = "0-10";
- // anchor0.innerText = "1";
   anchor0.setAttribute("href", "#");
 
   anchor0.addEventListener("click", function () {
     mainhtml(page1, 1)
-    //anchor0.setAttribute("class", "active");
-    //anchor.setAttribute("class", "active");
   });
 
 
 
   const anchor1 = createDomElement("a", "a-item", "a-item2");
-  anchor1.innerHTML = "10-20";
+  anchor1.innerHTML = "11-20";
   anchor1.setAttribute("href", "#");
-  //anchor1.innerText = "2";
   anchor1.addEventListener("click", function () {
     mainhtml(page2, 2)
-    anchor1.setAttribute("class", "active");
   });
 
 
   const anchor2 = createDomElement("a", "a-item", "a-item3");
-  anchor2.innerHTML = "20-30";
+  anchor2.innerHTML = "21-30";
   anchor2.setAttribute("href", "#");
   anchor2.addEventListener("click", function () {
     mainhtml(page3, 3)
-    anchor2.setAttribute("class", "active");
-
-  })
+    })
   const anchor3 = createDomElement("a", "a-item", "a-item5");
-  anchor3.innerHTML = "30-40";
+  anchor3.innerHTML = "31-40";
   anchor3.setAttribute("href", "#");
   anchor3.addEventListener("click", function () {
-    mainhtml(page4, 4)
-    anchor3.setAttribute("class", "active");
-  })
+       mainhtml(page4, 4)
+})
   const anchor4 = createDomElement("a", "a-item", "a-item6");
-  anchor4.innerHTML = "40-50";
+  anchor4.innerHTML = "41-50";
   anchor4.setAttribute("href", "#");
   anchor4.addEventListener("click", function () {
     mainhtml(page5, 5)
-    anchor4.setAttribute("class", "active");
   })
   const anchor5 = createDomElement("a", "a-item", "a-item7");
-  anchor5.innerHTML = "50-60";
+  anchor5.innerHTML = "51-60";
   anchor5.setAttribute("href", "#");
   anchor5.addEventListener("click", function () {
     mainhtml(page6, 6)
-    anchor5.setAttribute("class", "active");
+
   })
   const anchor6 = createDomElement("a", "a-item", "a-item8");
-  anchor6.innerHTML = "60-70";
+  anchor6.innerHTML = "61-70";
   anchor6.setAttribute("href", "#");
   anchor6.addEventListener("click", function () {
     mainhtml(page7, 7)
-    anchor6.setAttribute("class", "active");
   })
   const anchor7 = createDomElement("a", "a-item", "a-item9");
-  anchor7.innerHTML = "70-80";
+  anchor7.innerHTML = "71-80";
   anchor7.setAttribute("href", "#");
   anchor7.addEventListener("click", function () {
     mainhtml(page8, 8)
-    anchor7.setAttribute("class", "active");
-  })
+   })
   const anchor8 = createDomElement("a", "a-item", "a-item10");
-  anchor8.innerHTML = "80-90";
+  anchor8.innerHTML = "81-90";
   anchor8.setAttribute("href", "#");
   anchor8.addEventListener("click", function () {
     mainhtml(page9, 9)
-    anchor8.setAttribute("class", "active");
-  })
+   })
   const anchor9 = createDomElement("a", "a-item", "a-item11");
-  anchor9.innerHTML = "90-100";
+  anchor9.innerHTML = "91-100";
   anchor9.setAttribute("href", "#");
   anchor9.addEventListener("click", function () {
     mainhtml(page10, 10)
-    anchor9.setAttribute("class", "active");
-  
   });
 
 
-  const anchor12 = createDomElement("a", "", "a-item12");
+  const anchor12 = createDomElement("button", "next", "a-item12");
   anchor12.innerHTML = "Next<<";
   anchor12.setAttribute("href", "#");
 
   anchor12.addEventListener("click", function () {
 
-   if(anchor0.className==="a-item" && anchor1.className==="a-item" 
-   && anchor2.className==="a-item" && anchor3.className==="a-item"
-   && anchor4.className==="a-item" && anchor5.className==="a-item"
-   && anchor6.className==="a-item" && anchor7.className==="a-item"
-   && anchor8.className==="a-item" && anchor9.className==="a-item"){
-    anchor1.setAttribute("class","active");
-      mainhtml(page1,1)
+    if (anchor0.className == "a-item" && anchor1.className === "a-item"
+      && anchor2.className === "a-item" && anchor3.className === "a-item"
+      && anchor4.className === "a-item" && anchor5.className === "a-item"
+      && anchor6.className === "a-item" && anchor7.className === "a-item"
+      && anchor8.className === "a-item" && anchor9.className === "a-item")
+       {
+         anchor0.setAttribute("class", "active");
+         mainhtml(page1, 1)
 
-   }
-    else
-    if (anchor0.className === "active") {
+        }
+    else if (anchor0.className === "active") {
       mainhtml(page2, 2);
       anchor1.setAttribute("class", "active");
-      
       anchor0.setAttribute("class", "a-item");
     }
     else if (anchor1.className === "active") {
@@ -318,18 +312,21 @@ fetch(url).then((res) => {
     }
     else if (anchor9.className === "active") {
       mainhtml(page10, 9);
+
     }
-  
-  
-
-    
   })
-
-
   newdiv.append(anchor, anchor0, anchor1, anchor2, anchor3, anchor4, anchor5, anchor6, anchor7, anchor8, anchor9, anchor12);
- 
 
+  const section = document.querySelectorAll(".a-item")
+  section.forEach((e) => {
+    e.addEventListener("click", function () {
 
+      section.forEach(el => {
+        el.classList.remove("active");
+        this.setAttribute("class", "active");
+      })
+    })
+  })
 
 }).catch((err) => {
   console.log(err);
